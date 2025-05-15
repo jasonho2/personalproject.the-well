@@ -1,10 +1,11 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index, :show]
+  before_action :require_admin!, only: [:new, :create, :edit, :update, :destroy]
   before_action :ensure_admin!, only: [:new, :create]
 
   # GET /posts or /posts.json
   def index
-    @posts = Post.all
+    @posts = Post.order(created_at: :desc).limit(10)
   end
 
   # GET /posts/1 or /posts/1.json
@@ -22,7 +23,7 @@ class PostsController < ApplicationController
 
   # POST /posts or /posts.json
   def create
-    @post = current_user.admin?.posts.build(post_params)
+    @post = current_user.posts.build(post_params)
     if @post.save
       redirect_to root_path, notice: "Post created successfully."
     else
@@ -45,12 +46,9 @@ class PostsController < ApplicationController
 
   # DELETE /posts/1 or /posts/1.json
   def destroy
-    @post.destroy!
-
-    respond_to do |format|
-      format.html { redirect_to posts_path, status: :see_other, notice: "Post was successfully destroyed." }
-      format.json { head :no_content }
-    end
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to root_path, notice: "Post deleted successfully."
   end
 
   private
@@ -62,6 +60,12 @@ class PostsController < ApplicationController
     # Only allow a list of trusted parameters through.
     def post_params
       params.require(:post).permit(:title, :content)
+    end
+
+    def require_admin!
+      unless current_user&.admin?
+        redirect_to root_path, alert: "You are not authorized to perform this action."
+      end
     end
 
     def ensure_admin!

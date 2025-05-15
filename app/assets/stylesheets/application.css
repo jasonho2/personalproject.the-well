@@ -8,3 +8,65 @@
  *
  * Consider organizing styles into separate files for maintainability.
  */
+
+.recent-posts-section {
+  padding: 2rem;
+  background-color: #fefefe;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.post-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-5px);
+}
+
+.post-card h3 {
+  margin-top: 0;
+  font-size: 20px;
+  color: #333;
+}
+
+.post-card p {
+  color: #555;
+}
+
+.post-date {
+  font-size: 0.85rem;
+  color: #888;
+  margin-top: 0.5rem;
+}
+
+.delete-post-button {
+    margin-top: 1rem;
+    background-color: #d9534f;
+    color: white;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+  }
+
+  .delete-post-button:hover {
+    background-color: #c9302c;
+  }

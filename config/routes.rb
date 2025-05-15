@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root "pages#home"
 
   resources :posts, only: [:create]
+  resources :posts
 
   get "/about-us", to: "pages#about_us", as: :about_us
   get "/about-me", to: "pages#about_me", as: :about_me

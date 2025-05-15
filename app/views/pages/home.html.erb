@@ -3,3 +3,22 @@
   <%= yield %>
 </body>
 <h1>This is the Home Page</h1>
+<!-- app/views/pages/home.html.erb -->
+<section class="recent-posts-section">
+  <h2 class="section-title">Recent Updates</h2>
+  <div class="post-grid">
+    <% @posts.each do |post| %>
+      <div class="post-card">
+        <h3><%= post.title %></h3>
+        <p><%= truncate(post.content, length: 150) %></p>
+        <p class="post-date"><em><%= post.created_at.strftime("%B %d, %Y") %></em></p>
+
+        <% if user_signed_in? && current_user.admin? %>
+          <%= button_to "Delete", post_path(post), method: :delete,
+                data: { confirm: "Are you sure you want to delete this post?" },
+                class: "delete-post-button" %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</section>

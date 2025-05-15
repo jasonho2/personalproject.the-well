@@ -60,6 +60,11 @@
     <div class="mobile-toggle" onclick="toggleMenu()">☰</div>
 
     <div class="nav-links" id="navbar-links">
+
+      <% if user_signed_in? && current_user.admin? %>
+        <%= link_to "New Post", new_post_path, class: "admin-new-post-btn" %>
+      <% end %>
+
       <%= link_to "Home", root_path %>
       <%= link_to "About Us", about_us_path %>
       <%= link_to "About Me", about_me_path %>

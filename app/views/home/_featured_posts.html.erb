@@ -1,0 +1,19 @@
+<section class="featured-posts-section">
+  <h2 class="section-title">Recent Updates</h2>
+  <div class="posts-grid">
+    <% @recent_posts.each do |post| %>
+      <div class="post-card">
+        <h3><%= link_to post.title, post_path(post) %></h3>
+        <p><%= truncate(post.body, length: 150) %></p>
+        <%= link_to "Read More", post_path(post), class: "read-more" %>
+
+        <% if user_signed_in? && current_user.admin? %>
+          <div class="admin-controls">
+            <%= link_to "Edit", edit_post_path(post), class: "admin-edit" %> |
+            <%= link_to "Delete", post_path(post), method: :delete, data: { confirm: "Are you sure?" }, class: "admin-delete" %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</section>
