@@ -22,7 +22,7 @@ class PostsController < ApplicationController
 
   # POST /posts or /posts.json
   def create
-    @post = current_user.posts.build(post_params)
+    @post = current_user.admin?.posts.build(post_params)
     if @post.save
       redirect_to root_path, notice: "Post created successfully."
     else
