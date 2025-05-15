@@ -3,5 +3,54 @@
   <%= yield %>
 </body>
 
-<h1>Pages#about_me</h1>
-<p>Find me in app/views/pages/about_me.html.erb</p>
+<div class="about-me-container">
+  <section class="header">
+    <h1>About Me</h1>
+    <p class="subtitle">A little bit about who I am and why I started The Well</p>
+  </section>
+
+  <section class="photo-contact">
+    <div class="photo">
+      <%= image_tag "rowlet.png", alt: "Jason's Photo", class: "profile-photo" %>
+    </div>
+    <div class="contact-links">
+      <h3>Get in touch</h3>
+      <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
+      <p>
+        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">Twitter</a> |
+        <a href="https://www.linkedin.com/in/" target="_blank" rel="noopener noreferrer">LinkedIn</a> |
+        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">Facebook</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="bio">
+    <p>
+      Hello! I'm Jason (or your name), and I created The Well to build a space of warmth, connection, and healing.
+      My journey has been one of faith, discovery, and learning to embrace both challenges and blessings.
+    </p>
+    <p>
+      I’m passionate about community, spirituality, and helping others find peace and purpose in their lives.
+    </p>
+  </section>
+
+  <section class="mission">
+    <h2>My Mission</h2>
+    <p>
+      To nurture a welcoming, calming environment where all feel seen, heard, and valued — a place to pause and refresh your spirit.
+    </p>
+  </section>
+
+  <section class="interests">
+    <h2>Outside of The Well</h2>
+    <p>
+      When I’m not working on the community, you might find me hiking in nature, reading spiritual books, or experimenting with cooking.
+    </p>
+  </section>
+
+  <section class="quote">
+    <blockquote>
+      “The Lord is my shepherd; I shall not want.” – Psalm 23:1
+    </blockquote>
+  </section>
+</div>
