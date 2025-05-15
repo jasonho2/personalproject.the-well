@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root "pages#home"
 
-  resources :posts, only: [:create]
+  resources :posts, only: [:new, :create, :destroy]
   resources :posts
 
   get "/about-us", to: "pages#about_us", as: :about_us
