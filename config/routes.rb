@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   root "pages#home"
-  get "/about-us", to: "pages#about_us"
-  get "/about-me", to: "pages#about_me"
-  get "/join-us", to: "pages#join_us"
-  resources :posts, only: [:create, :index]
+
+  resources :posts, only: [:create]
+
+  get "/about-us", to: "pages#about_us", as: :about_us
+  get "/about-me", to: "pages#about_me", as: :about_me
+  get "/join-us", to: "pages#join_us", as: :join_us
+
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

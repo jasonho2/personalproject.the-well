@@ -1,0 +1,82 @@
+<nav class="navbar">
+  <style>
+    .navbar {
+      background-color: #f5f5f5;
+      padding: 10px 20px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .navbar .nav-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .navbar .nav-brand {
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .navbar .nav-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .navbar .nav-links a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    .navbar .mobile-toggle {
+      display: none;
+      cursor: pointer;
+      font-size: 20px;
+    }
+
+    @media (max-width: 768px) {
+      .navbar .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      .navbar .nav-links.active {
+        display: flex;
+      }
+
+      .navbar .mobile-toggle {
+        display: block;
+      }
+    }
+  </style>
+
+  <div class="nav-container">
+    <div class="nav-brand">
+      <%= link_to "The Well", root_path %>
+    </div>
+
+    <div class="mobile-toggle" onclick="toggleMenu()">☰</div>
+
+    <div class="nav-links" id="navbar-links">
+      <%= link_to "Home", root_path %>
+      <%= link_to "About Us", about_us_path %>
+      <%= link_to "About Me", about_me_path %>
+      <%= link_to "Join Us", join_us_path %>
+
+      <% if user_signed_in? %>
+        <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to "Login", new_user_session_path %>
+      <% end %>
+    </div>
+  </div>
+
+  <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById('navbar-links');
+      navLinks.classList.toggle('active');
+    }
+  </script>
+</nav>

@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
   before_action :ensure_admin!, only: [:new, :create]
 
@@ -23,16 +22,11 @@ class PostsController < ApplicationController
 
   # POST /posts or /posts.json
   def create
-    @post = Post.new(post_params)
-
-    respond_to do |format|
-      if @post.save
-        format.html { redirect_to @post, notice: "Post was successfully created." }
-        format.json { render :show, status: :created, location: @post }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @post.errors, status: :unprocessable_entity }
-      end
+    @post = current_user.posts.build(post_params)
+    if @post.save
+      redirect_to root_path, notice: "Post created successfully."
+    else
+      redirect_to root_path, alert: "Failed to create post."
     end
   end
 
@@ -67,7 +61,7 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.expect(post: [ :title, :content, :user_id ])
+      params.require(:post).permit(:title, :content)
     end
 
     def ensure_admin!
