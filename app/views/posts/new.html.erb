@@ -1,11 +1,15 @@
 <% content_for :title, "New post" %>
 
-<h1>New post</h1>
+<div class="container">
 
-<%= render "form", post: @post %>
+  <h1>New post</h1>
 
-<br>
+  <%= render "form", post: @post %>
 
-<div>
-  <%= link_to 'Back to Home', root_path %>
+  <br>
+
+  <div class="back-to-home">
+    <%= link_to 'Back to Home', root_path, class: "btn-custom-outline" %>
+  </div>
+
 </div>

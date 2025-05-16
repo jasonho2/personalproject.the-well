@@ -1,4 +1,4 @@
-<%= form_with(model: post) do |form| %>
+<%= form_with(model: post, local: true) do |form| %>
   <% if post.errors.any? %>
     <div style="color: red">
       <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
@@ -11,22 +11,22 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+  <div class="form-group">
+    <%= form.label :title, style: "display: block", class: "subtitle" %>
+    <%= form.text_field :title, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :content, style: "display: block", class: "subtitle" %>
+    <%= form.textarea :content, class: "form-control", rows: 8 %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :user_id, style: "display: block", class: "subtitle" %>
+    <%= form.text_field :user_id, class: "form-control" %>
   </div>
 
   <div>
-    <%= form.label :content, style: "display: block" %>
-    <%= form.textarea :content %>
-  </div>
-
-  <div>
-    <%= form.label :user_id, style: "display: block" %>
-    <%= form.text_field :user_id %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+    <%= form.submit "Create Post", class: "btn-custom-primary" %>
   </div>
 <% end %>

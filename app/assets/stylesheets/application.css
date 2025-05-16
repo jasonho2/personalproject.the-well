@@ -7,7 +7,18 @@
  * depending on specificity.
  *
  * Consider organizing styles into separate files for maintainability.
- */
+*/
+
+/* Base font settings for all form elements */
+input[type="text"],
+input[type="email"],
+textarea,
+select,
+button,
+label {
+  font-family: 'Georgia', serif;
+  color: var(--primary-text-color);
+}
 
 :root {
   --navbar-link-color: #333;
@@ -31,7 +42,6 @@
   padding-top: 64px;
   max-width: 800px;
   margin: auto;
-  font-family: 'Georgia', serif;
   line-height: 1.6;
   color: var(--primary-text-color);
 }
@@ -94,12 +104,6 @@
 
 .delete-post-button:hover {
   background-color: #c9302c;
-}
-
-.container .mission {
-  font-size: 1.1rem;
-  color: var(--primary-text-color);
-  margin-bottom: 2rem;
 }
 
 .container ul {
@@ -239,4 +243,49 @@ blockquote {
   .navbar .mobile-toggle {
     display: block;
   }
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-control {
+  width: 90%;
+  padding: 0.75rem;
+  font-size: 1.1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+}
+
+.btn-custom-primary {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-custom-primary:hover {
+  background-color: #0056b3;
+}
+
+.back-to-home {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.btn-custom-outline {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  color: #333;
+}
+
+.btn-custom-outline:hover {
+  background-color: #f2f2f2;
 }
