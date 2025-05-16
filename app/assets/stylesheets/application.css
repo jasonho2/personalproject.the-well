@@ -252,7 +252,7 @@ blockquote {
 .form-control {
   width: 90%;
   padding: 0.75rem;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   border-radius: 0.5rem;
   border: 1px solid #ccc;
 }
@@ -288,4 +288,41 @@ blockquote {
 
 .btn-custom-outline:hover {
   background-color: #f2f2f2;
+}
+
+.join-us-container {
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 20px;
+  text-align: center;
+  line-height: 1.6;
+  color: var(--primary-text-color);
+}
+
+.join-us-container h1, h2 {
+  color: var(--primary-header-color);
+  margin-bottom: 0.5rem;
+}
+
+.join-us-form {
+  text-align: left;
+}
+
+.email-label {
+  margin-bottom: 5px;
+}
+
+.join-us-email-box {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+#paypal-button-container {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
 }
