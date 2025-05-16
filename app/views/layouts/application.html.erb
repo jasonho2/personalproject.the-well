@@ -20,10 +20,13 @@
     <%# Includes all stylesheet files in app/assets/stylesheets %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
 
-    <% flash.each do |key, value| %>
-      <div class="flash <%= key %>"><%= value %></div>
-    <% end %>
+    <div class="flash-container">
+      <% flash.each do |key, message| %>
+        <div class="flash-message <%= key %>"><%= message %></div>
+      <% end %>
+    </div>
 
     <%# Actual PayPal client ID stored in .env file %>
     <script src="https://www.paypal.com/sdk/js?client-id=<%= ENV['PAYPAL_SANDBOX_CLIENT_ID'] %>&currency=USD" data-turbo="false"></script>
