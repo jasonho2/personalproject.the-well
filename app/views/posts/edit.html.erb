@@ -1,11 +1,14 @@
 <% content_for :title, "Editing post" %>
 
-<h1>Editing post</h1>
+<div class="container">
+  <h1>Editing post</h1>
 
-<%= render "form", post: @post %>
+  <%= render "form", post: @post %>
 
-<br>
+  <br>
 
-<div>
-  <%= link_to "Back to posts", root_path, class: "btn-custom-outline" %>
+  <div>
+    <%= link_to "Back to posts", root_path, class: "btn-custom-outline" %>
+  </div>
+
 </div>

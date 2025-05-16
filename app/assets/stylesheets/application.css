@@ -374,3 +374,25 @@ blockquote {
   display: flex;
   justify-content: center;
 }
+
+.flash {
+  margin-top: 80px; /* push it below fixed navbar */
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  text-align: center;
+  font-weight: bold;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.flash.notice {
+  background-color: #dff0d8;
+  color: #3c763d;
+}
+
+.flash.alert {
+  background-color: #f2dede;
+  color: #a94442;
+}
