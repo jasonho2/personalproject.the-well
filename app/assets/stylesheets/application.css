@@ -9,16 +9,30 @@
  * Consider organizing styles into separate files for maintainability.
  */
 
-.recent-posts-section {
-  padding: 2rem;
-  background-color: #fefefe;
+:root {
+  --navbar-link-color: #333;
+  --navbar-background-color: #f5f5f5;
+  --navbar-border-color: #ccc;
+  --primary-background-color: #fefefe;
+  --primary-header-color: #6b5840;
+  --primary-text-color: #4a3f35;
+  --secondary-text-color: #7a6c5a;
+  --card-background-color: #fff;
+  --card-header-color: #333;
+  --card-content-color: #555;
+  --card-date-color: #888;
+  --list-item-color: #f8f4f0;
+  --quote-color: #333;
+  --link-hover-color: #a57c49;
 }
 
-.section-title {
-  text-align: center;
-  font-size: 28px;
-  font-weight: 600;
-  margin-bottom: 2rem;
+body {
+  
+}
+
+.recent-posts-section {
+  padding: 2rem;
+  background-color: var(--primary-background-color);
 }
 
 .post-grid {
@@ -28,7 +42,7 @@
 }
 
 .post-card {
-  background: #fff;
+  background: var(--card-background-color);
   border-radius: 12px;
   padding: 1rem;
   box-shadow: 0 2px 10px rgba(0,0,0,0.08);
@@ -42,55 +56,56 @@
 .post-card h3 {
   margin-top: 0;
   font-size: 20px;
-  color: #333;
+  color: var(--card-header-color);
 }
 
 .post-card p {
-  color: #555;
+  color: var(--card-content-color);
 }
 
 .post-date {
   font-size: 0.85rem;
-  color: #888;
+  color: var(--card-date-color);
   margin-top: 0.5rem;
 }
 
 .delete-post-button {
-    margin-top: 1rem;
-    background-color: #d9534f;
-    color: white;
-    padding: 6px 12px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 14px;
-    transition: background-color 0.3s ease;
-  }
+  margin-top: 1rem;
+  background-color: #d9534f;
+  color: white;
+  padding: 6px 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s ease;
+}
 
-  .delete-post-button:hover {
-    background-color: #c9302c;
-  }
+.delete-post-button:hover {
+  background-color: #c9302c;
+}
 
-  .about-us-container {
+.container {
   padding: 2rem;
   max-width: 800px;
   margin: auto;
   font-family: 'Georgia', serif;
   line-height: 1.6;
+  color: var(--primary-text-color);
 }
 
-.about-us-container h1, h2 {
-  color: #4a3f35;
+.container h1, h2 {
+  color: var(--primary-header-color);
   margin-bottom: 0.5rem;
 }
 
-.about-us-container .mission {
+.container .mission {
   font-size: 1.1rem;
-  color: #555;
+  color: var(--primary-text-color);
   margin-bottom: 2rem;
 }
 
-.about-us-container ul {
+.container ul {
   list-style: none;
   padding: 0;
   display: flex;
@@ -98,49 +113,31 @@
   flex-wrap: wrap;
 }
 
-.about-us-container ul li {
-  background: #f8f4f0;
+.container ul li {
+  background: var(--list-item-color);
   padding: 0.5rem 1rem;
   border-radius: 8px;
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  color: var(--card-header-color);
 }
 
-.about-us-container .quote {
+blockquote {
   font-style: italic;
   margin-top: 2rem;
   background: #f0f0f5;
   padding: 1rem;
   border-left: 4px solid #ccc;
+  color: var(--quote-color);
 }
 
-.about-me-container {
-  max-width: 700px;
-  margin: 2rem auto;
-  font-family: 'Georgia', serif;
-  color: #4a3f35;
-  padding: 0 1rem;
-}
-
-.about-me-container h1, h2 {
-  color: #6b5840;
-}
-
-.about-me-container .subtitle {
+.container .subtitle {
   font-style: italic;
-  color: #7a6c5a;
+  color: var(--secondary-text-color);
   margin-bottom: 1.5rem;
 }
 
-.about-me-container section {
+.container section {
   margin-bottom: 2rem;
-}
-
-.about-me-container blockquote {
-  font-style: italic;
-  background: #f9f6f2;
-  padding: 1rem 1.5rem;
-  border-left: 4px solid #c4b7a6;
-  color: #6a5a4a;
 }
 
 .photo-contact {
@@ -159,11 +156,11 @@
 
 .contact-links h3 {
   margin-bottom: 0.5rem;
-  color: #6b5840;
+  color: var(--primary-header-color);
 }
 
 .contact-links a {
-  color: #a57c49;
+  color: var(--link-hover-color);
   text-decoration: none;
   font-weight: 600;
 }
@@ -174,19 +171,25 @@
 
 /* Navbar styling */
 .navbar {
-  background-color: #f5f5f5;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* ensure it stays above everything else */
+  font-family: 'Georgia', serif;
+  background-color: var(--navbar-background-color);
   padding: 1rem 2rem;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid var(--navbar-border-color);
 }
 
 .navbar a {
-  color: #6b5840;
+  color: var(--primary-header-color);
   font-weight: 600;
   margin-right: 1rem;
 }
 
 .navbar a:hover {
-  color: #a57c49;
+  color: var(--link-hover-color);
 }
 
 .navbar .mobile-toggle {
