@@ -11,6 +11,7 @@
 
       <% if user_signed_in? && current_user.admin? %>
         <%= link_to "New Post", new_post_path, class: "admin-new-post-btn" %>
+        <%= link_to "Members", members_path %>
       <% end %>
 
       <%= link_to "Home", root_path %>

@@ -229,6 +229,7 @@ blockquote {
     flex-direction: column;
     width: 100%;
     margin-top: 10px;
+    padding-top: 24px;
   }
 
   .navbar .nav-links.active {

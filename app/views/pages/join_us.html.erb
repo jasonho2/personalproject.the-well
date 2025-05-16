@@ -3,5 +3,54 @@
   <%= yield %>
 </body>
 
-<h1>Pages#join_us</h1>
-<p>Find me in app/views/pages/join_us.html.erb</p>
+<!-- app/views/pages/join_us.html.erb -->
+<div class="container">
+  <h1>Join Our Community</h1>
+  <p>Click below to join and support our mission.</p>
+
+  <form id="membership-form">
+    <label for="email">Email:</label><br>
+    <input type="email" id="email" required><br><br>
+
+    <div id="paypal-button-container"></div>
+  </form>
+
+  <script>
+    let userEmail = "";
+
+    document.getElementById("email").addEventListener("input", (e) => {
+      userEmail = e.target.value;
+    });
+
+    paypal.Buttons({
+      createOrder: function (data, actions) {
+        if (!userEmail) {
+          alert("Please enter a valid email address before continuing.");
+          return;
+        }
+        return actions.order.create({
+          purchase_units: [{
+            amount: { value: '10.00' } // Update price as needed
+          }]
+        });
+      },
+      onApprove: function (data, actions) {
+        return actions.order.capture().then(function (details) {
+          fetch("/members", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              "X-CSRF-Token": document.querySelector('meta[name="csrf-token"]').content
+            },
+            body: JSON.stringify({ email: userEmail })
+          }).then(response => {
+            if (response.ok) {
+              alert("Thank you for joining! You’ll hear from us soon.");
+              document.getElementById("membership-form").reset();
+            }
+          });
+        });
+      }
+    }).render("#paypal-button-container");
+  </script>
+</div>
