@@ -26,7 +26,7 @@
     <% end %>
 
     <%# Actual PayPal client ID stored in .env file %>
-    <script src="https://www.paypal.com/sdk/js?client-id=<%= ENV['PAYPAL_SANDBOX_CLIENT_ID'] %>&currency=USD"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=<%= ENV['PAYPAL_SANDBOX_CLIENT_ID'] %>&currency=USD" data-turbo="false"></script>
 
   </head>
 
