@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
-  before_action :require_admin!, only: [:new, :create, :edit, :update, :destroy]
-  before_action :ensure_admin!, only: [:new, :create]
+  before_action :authenticate_user!, except: [ :index, :show ]
+  before_action :require_admin!, only: [ :new, :create, :edit, :update, :destroy ]
+  before_action :ensure_admin!, only: [ :new, :create ]
 
   # GET /posts or /posts.json
   def index

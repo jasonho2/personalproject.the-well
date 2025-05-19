@@ -3,10 +3,10 @@ Rails.application.routes.draw do
   get "members/index"
   root "pages#home"
 
-  resources :posts, only: [:new, :create, :destroy]
+  resources :posts, only: [ :new, :create, :destroy ]
   resources :posts
 
-  resources :members, only: [:create, :index]
+  resources :members, only: [ :create, :index ]
 
   get "members", to: "pages#members"  # if handled by PagesController
 
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get "/about-me", to: "pages#about_me", as: :about_me
   get "/join-us", to: "pages#join_us", as: :join_us
 
-  
+
 
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
