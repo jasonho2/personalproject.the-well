@@ -15,3 +15,30 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 3000); // Hide after 3 seconds
   });
 });
+
+// for image carousel
+document.addEventListener("turbo:load", () => {
+  const slides = document.querySelectorAll(".slide");
+  if (slides.length === 0) return;
+
+  let currentSlide = 0;
+
+  const showSlide = (index) => {
+    slides.forEach((slide, i) => {
+      slide.classList.remove("active", "prev");
+      if (i === index) {
+        slide.classList.add("active");
+      } else if (i === (index - 1 + slides.length) % slides.length) {
+        slide.classList.add("prev");
+      }
+    });
+  };
+
+  const nextSlide = () => {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  };
+
+  showSlide(currentSlide); // Initialize first slide
+  setInterval(nextSlide, 4000); // Advance every 4 seconds
+});
