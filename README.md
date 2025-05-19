@@ -1,24 +1,9 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Personal project website for a family member.
 
-Things you may want to cover:
+The Well is a community and support group for mothers with an overwhelming world of social media interference and raising children and a complex world.
 
-* Ruby version
+The Well is targeted for new mothers to provide a safe and comforting environment.  This venture provides a wide range of social events, experiences, and hospitality to members who are all experiencing similar stresses of life with kids, as a way to escape the stressful world of being a new parent especially with younger children.
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Stock images credited to Pixabay and Freepik for use within our content.
