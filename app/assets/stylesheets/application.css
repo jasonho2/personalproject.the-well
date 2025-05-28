@@ -65,10 +65,14 @@ label {
 
 .container {
   padding: 2rem;
-  max-width: 800px;
+  max-width: 850px;
   margin: auto;
   line-height: 1.6;
   color: var(--primary-text-color);
+}
+
+.font-size-body {
+  font-size: 20px;
 }
 
 .container h1, h2 {
@@ -410,7 +414,7 @@ blockquote {
 }
 
 .join-us-container {
-  max-width: 600px;
+  max-width: 650px;
   margin: 60px auto;
   padding: 20px;
   text-align: center;
