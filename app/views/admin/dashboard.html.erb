@@ -1,0 +1,32 @@
+<h1>Admin Dashboard</h1>
+
+<div class="admin-links">
+  <%= link_to "New Post", new_post_path, class: "admin-link" %>
+  <%= link_to "Members", members_path, class: "admin-link" %>
+  <%= link_to "User Management", admin_users_path, class: "admin-link" %>
+  <%= link_to "Analytics", admin_analytics_path, class: "admin-link" %>
+  <%= link_to "Attendees by Event", admin_attendees_path, class: "admin-link" %>
+</div>
+
+<h2>All Posts</h2>
+<ul>
+  <% @posts.each do |post| %>
+    <li>
+      <%= post.title %> |
+      <%= link_to "Edit", edit_post_path(post) %> |
+      <%= link_to "Delete", post_path(post), method: :delete, data: { confirm: "Are you sure?" } %>
+    </li>
+  <% end %>
+</ul>
+
+<h2>All Users</h2>
+<ul>
+  <% @users.each do |user| %>
+    <li>
+      <%= user.email %> (<%= user.admin? ? "Admin" : "User" %>)
+      <% unless current_user == user %>
+        <%= link_to "Delete User", admin_user_path(user), method: :delete, data: { confirm: "Are you sure?" } %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
