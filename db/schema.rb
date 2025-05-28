@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_05_28_180646) do
+ActiveRecord::Schema[8.0].define(version: 2025_05_28_183737) do
   create_table "events", force: :cascade do |t|
     t.string "eventbrite_id"
     t.string "name"
@@ -35,6 +35,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_05_28_180646) do
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "external_url"
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 

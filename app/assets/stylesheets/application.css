@@ -392,6 +392,23 @@ blockquote {
   background-color: #f2f2f2;
 }
 
+.btn-eventbrite {
+  background-color: #f05537;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
+}
+
+.btn-eventbrite:hover {
+  background-color: #bc3d23;
+  text-decoration: none;
+}
+
 .join-us-container {
   max-width: 600px;
   margin: 60px auto;

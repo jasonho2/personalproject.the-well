@@ -16,11 +16,8 @@ Rails.application.routes.draw do
   get "/join-us", to: "pages#join_us", as: :join_us
 
   namespace :admin do
-    get 'dashboard', to: 'dashboard#index'
-    resources :posts
-    resources :users, only: [:index, :destroy]
-    get 'analytics', to: 'dashboard#analytics'
-    get 'attendees', to: 'dashboard#attendees'
+    get "dashboard", to: "dashboard#index"
+    post "events/sync", to: "events#sync"
   end
 
   devise_for :users, controllers: {

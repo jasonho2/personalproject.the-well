@@ -16,6 +16,10 @@
         <p><%= truncate(post.content, length: 150) %></p>
         <p class="post-date"><em><%= post.created_at.strftime("%B %d, %Y") %></em></p>
 
+        <% if post.external_url.present? %>
+          <p><%= link_to "View Event", post.external_url, target: "_blank", class: "btn-eventbrite" %></p>
+        <% end %>
+
         <% if post.user %>
           <p class="post-author">
             Posted by <%= post.user.name || post.user.email %>
