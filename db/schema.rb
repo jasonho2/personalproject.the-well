@@ -10,7 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_05_16_151351) do
+ActiveRecord::Schema[8.0].define(version: 2025_05_28_180646) do
+  create_table "events", force: :cascade do |t|
+    t.string "eventbrite_id"
+    t.string "name"
+    t.text "description"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.string "url"
+    t.string "location"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "members", force: :cascade do |t|
     t.string "email"
     t.datetime "created_at", null: false
