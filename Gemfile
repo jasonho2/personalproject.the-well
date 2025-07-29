@@ -66,6 +66,9 @@ end
 
 gem "devise", "~> 4.9"
 
-gem 'httparty'
+gem "httparty"
 
-gem 'eventbrite_sdk'
+gem "eventbrite_sdk"
+
+gem "faraday"
+gem "faraday_middleware"
